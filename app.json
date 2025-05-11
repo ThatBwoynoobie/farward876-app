@@ -1,35 +1,35 @@
 {
   "expo": {
     "name": "farward876-app",
-    "slug": "farward876-app",
+    "slug": "rosha",
     "version": "1.0.0",
+    "sdkVersion": "53.0.0",
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "jsEngine": "jsc",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "ios": {
-      "supportsTablet": true
+    "updates": {
+      "fallbackToCacheTimeout": 0
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      },
-      "edgeToEdgeEnabled": true,
-      "package": "com.farward876.app"
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "extra": {
       "eas": {
-        "projectId": "bce16757-7417-4eb3-917c-4edeff8673a5"
+        "projectId": "d563f1da-d23e-442b-876b-cd60243a4dea"
       }
-    }
+    },
+    "android": {
+      "package": "com.farward876.app"
+    },
+    "owner": "noobie876"
   }
 }

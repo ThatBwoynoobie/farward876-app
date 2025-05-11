@@ -1,8 +1,16 @@
-# Ignore unnecessary or locked folders/files
-
-**/AppData/**
-**/.vscode/**
-**/.git/**
-**/node_modules/**
+# OS and IDE generated files
 **/.DS_Store
 **/Thumbs.db
+**/.vscode/**
+**/AppData/**
+
+# Version control
+**/.git/**
+
+# Package managers - lock files (optional if you want clean builds every time)
+**/package-lock.json
+**/npm-debug.log
+**/yarn-error.log
+
+# Node modules (reinstalled by EAS build service)
+**/node_modules/**
