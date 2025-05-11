@@ -1,0 +1,8 @@
+# Ignore unnecessary or locked folders/files
+
+**/AppData/**
+**/.vscode/**
+**/.git/**
+**/node_modules/**
+**/.DS_Store
+**/Thumbs.db
