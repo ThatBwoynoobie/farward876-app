@@ -3,32 +3,15 @@
     "name": "farward876-app",
     "slug": "rosha",
     "version": "1.0.0",
-    "sdkVersion": "53.0.0",
-    "platforms": [
-      "android",
-      "ios"
-    ],
-    "jsEngine": "jsc",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "extra": {
       "eas": {
         "projectId": "d563f1da-d23e-442b-876b-cd60243a4dea"
       }
     },
     "android": {
-      "package": "com.farward876.app"
+      "package": "com.farward876.app",
+      "jsEngine": "jsc"
     },
     "owner": "noobie876"
   }

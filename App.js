@@ -3,14 +3,13 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Linking } f
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { auth, db } from './firebase'; // ✅ Using shared firebase.js
+import { auth, db } from './firebase';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
 
-// ✅ Login Screen with Login & Register Support
 function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,7 +47,6 @@ function LoginScreen({ navigation }) {
   );
 }
 
-// ✅ Remaining Screens (no changes needed)
 function HomeScreen({ route }) { const { userEmail } = route.params || { userEmail: 'Guest' }; return (<View style={styles.container}><Text style={styles.title}>Welcome to Farward876 🎉</Text><Text style={styles.subtitle}>Logged in as {userEmail}</Text></View>); }
 
 function TicketsScreen({ navigation }) {
@@ -115,14 +113,12 @@ function ManageTicketsScreen() {
   return (<View style={styles.container}><Text style={styles.title}>Manage Tickets</Text><TextInput style={styles.input} placeholder="Ticket Name" placeholderTextColor="#ccc" value={name} onChangeText={setName} /><TextInput style={styles.input} placeholder="Ticket Price" placeholderTextColor="#ccc" value={price} onChangeText={setPrice} keyboardType="numeric" /><TextInput style={styles.input} placeholder="Description" placeholderTextColor="#ccc" value={description} onChangeText={setDescription} /><TextInput style={styles.input} placeholder="Date" placeholderTextColor="#ccc" value={date} onChangeText={setDate} /><TouchableOpacity style={styles.buyButton} onPress={handleSaveTicket}><Text style={styles.buyButtonText}>Save Ticket</Text></TouchableOpacity></View>);
 }
 
-// ✅ Drawer Navigation
 function DrawerMenu({ route, navigation }) {
   const userEmail = route.params?.userEmail || 'Guest';
   const handleLogout = () => Alert.alert('Confirm Logout', 'Are you sure?', [{ text: 'Cancel' }, { text: 'Yes', onPress: () => navigation.replace('Login') }]);
   return (<Drawer.Navigator initialRouteName="Home"><Drawer.Screen name="Home">{() => <HomeScreen route={{ params: { userEmail } }} />}</Drawer.Screen><Drawer.Screen name="Tickets" component={TicketsScreen} /><Drawer.Screen name="View Cart" component={ViewCartScreen} /><Drawer.Screen name="Checkout" component={CheckoutScreen} /><Drawer.Screen name="Order Confirmation" component={OrderConfirmationScreen} /><Drawer.Screen name="Contact Us" component={ContactScreen} /><Drawer.Screen name="Manage Tickets" component={ManageTicketsScreen} /><Drawer.Screen name="Logout" component={() => handleLogout()} /></Drawer.Navigator>);
 }
 
-// ✅ App Entry Point
 export default function App() {
   return (
     <NavigationContainer>
@@ -134,7 +130,6 @@ export default function App() {
   );
 }
 
-// ✅ Styles
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#000', justifyContent: 'center', alignItems: 'center', padding: 20 },
   title: { fontSize: 24, color: '#fff', marginBottom: 20 },
