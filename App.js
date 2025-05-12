@@ -1,27 +1,14 @@
+import { auth, db } from './firebase/firebase';
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Linking } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs, doc, setDoc } from 'firebase/firestore';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBHsrhP2IZqgb2e1x6UZVZx4JhAqDFWi7k",
-  authDomain: "farward876.firebaseapp.com",
-  projectId: "farward876",
-  storageBucket: "farward876.appspot.com",
-  messagingSenderId: "879360512154",
-  appId: "1:879360512154:web:f9c34b6415f79436070f23",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const auth = getAuth(app);
 
 function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
@@ -270,8 +257,6 @@ const styles = StyleSheet.create({
   buyButtonText: { color: '#000', fontWeight: 'bold', fontSize: 18 },
   thankYouTitle: { fontSize: 32, color: '#0f0', fontWeight: 'bold', marginBottom: 20, textAlign: 'center' },
   cart: { color: '#fff', fontSize: 16, marginBottom: 10 },
-  section: { width: '100%', marginVertical: 10 },
-  sectionTitle: { fontSize: 20, color: '#0f0', marginBottom: 5 },
   ticketItem: { backgroundColor: '#222', padding: 15, borderRadius: 8, marginVertical: 5, width: '100%' },
   ticketText: { color: '#fff', fontSize: 16 },
   descButton: { backgroundColor: '#f00', padding: 10, borderRadius: 5, marginTop: 10, alignItems: 'center' },
