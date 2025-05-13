@@ -1,31 +1,12 @@
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
-import { getAuth, initializeAuth, getReactNativePersistence } from 'firebase/auth/react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getApps, getApp, initializeApp } from '@react-native-firebase/app';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBHsrhP2IZqgb2e1x6UZVZx4JhAqDFWi7k1",
-  authDomain: "farward876-app.firebaseapp.com",
-  projectId: "farward876-app",
-  storageBucket: "farward876.appspot.com",
-  messagingSenderId: "1234567890",
-  appId: "1:1234567890:web:abcdefg1234567"
-};
+// Initialize Firebase App only if not already initialized
+const app = getApps().length ? getApp() : initializeApp();
 
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
+// Firestore instance
+const db = firestore();
 
-let auth;
-try {
-  auth = getAuth(app);
-  if (!auth._persistor) {
-    initializeAuth(app, {
-      persistence: getReactNativePersistence(AsyncStorage)
-    });
-  }
-} catch (error) {
-  console.log('Firebase Auth initialization error:', error);
-}
-
-const db = getFirestore(app);
-
+// Export Auth and Firestore
 export { auth, db };
